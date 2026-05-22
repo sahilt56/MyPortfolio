@@ -204,7 +204,8 @@ header {
     font-weight: 800;
     color: var(--main-color);
     letter-spacing: 1px;
-    margin-left: -58px; /* nudge logo slightly left */
+    /* margin-left: -1px;  */
+    /* nudge logo slightly left */
 }
 
 .logo span {
