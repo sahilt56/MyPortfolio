@@ -11,10 +11,10 @@ const body = document.body;
 const setTheme = (isLight) => {
     if (isLight) {
         body.classList.add('light-mode');
-        themeToggle?.classList.replace('fa-moon', 'fa-sun');
+        themeToggle?.classList.replace('far', 'fas');
     } else {
         body.classList.remove('light-mode');
-        themeToggle?.classList.replace('fa-sun', 'fa-moon');
+        themeToggle?.classList.replace('fas', 'far');
     }
 };
 
@@ -189,10 +189,10 @@ window.addEventListener('scroll', () => {
     // Header background change on scroll
     if (header) {
         if (window.scrollY > 50) {
-            header.style.padding = "10px 10%";
+            // header.style.padding = "20px 10%";
             header.classList.add('glass-card');
         } else {
-            header.style.padding = "20px 10%";
+            
             header.classList.remove('glass-card');
         }
     }

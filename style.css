@@ -173,7 +173,7 @@ strong {
 /* ===============================
    NAVBAR
 =================================*/
-header {
+/* header {
     position: fixed;
     top: 20px;
     left: 5%;
@@ -183,8 +183,8 @@ header {
     justify-content: space-between;
     align-items: center;
     background: rgba(15, 23, 42, 0.65);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(22px);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 50px;
     z-index: 1000;
@@ -193,9 +193,58 @@ header {
 }
 
 .light-mode header {
-    background: rgba(247, 249, 249, 0.7);
+    background: rgba(255, 255, 255, 0.17);
     border: 1px solid rgba(0, 0, 0, 0.08);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+} */
+
+header {
+    position: fixed;
+    top: 20px;
+    left: 5%;
+    width: 90%;
+    padding: 20px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    border-radius: 50px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    
+    /* Dynamic blurring framework */
+    backdrop-filter: blur(6px) brightness(1.1);
+    -webkit-backdrop-filter: blur(6px) brightness(1.1);
+
+    /* Dark Mode Liquid Base */
+    /* background: rgba(15, 23, 42, 0.45);  */
+    
+    /* Micro highlight border (Liquid Rim) */
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    
+    /* Gel/Liquid multi-layered gloss reflections */
+    box-shadow: 
+        inset 0 1px 2px rgba(255, 255, 255, 0.4),      /* Top edge reflection */
+        inset 0 8px 20px rgba(255, 255, 255, 0.08),    /* Soft inner fluid glow */
+        inset 0 -4px 10px rgba(0, 0, 0, 0.2),          /* Bottom refraction shadow */
+        0 12px 40px rgba(0, 0, 0, 0.3);                /* Smooth ambient drop shadow */
+}
+
+/* Light Mode Liquid Adjustments */
+.light-mode header {
+    /* Brightness badha di taaki glass layer stand out kare */
+    backdrop-filter: blur(5px) brightness(1);
+    -webkit-backdrop-filter: blur(5px) brightness(1.25);
+    
+    background: rgba(255, 255, 255, 0.34);
+    
+    /* Light mode me liquid edge ko soft white aur black mix diya */
+    border: 1px solid rgba(121, 119, 119, 0.6);
+    
+    box-shadow: 
+        inset 0 1px 2px rgba(255, 255, 255, 0.8),      /* Extra bright top rim */
+        inset 0 6px 15px rgba(255, 255, 255, 0.3),     /* Internal light filling */
+        inset 0 -2px 6px rgba(0, 0, 0, 0.03),          /* Mild dark bottom warp */
+        0 10px 30px rgba(0, 0, 0, 0.06);               /* Clean soft layout drop shadow */
 }
 
 
@@ -228,11 +277,13 @@ header {
 }
 
 .header-btns {
-    margin-left: 25px;
-    font-size: 22px;
+    margin-left: 2px;
+    font-size: 30px;
     cursor: pointer;
     transition: 0.3s;
-    color: var(--text-color);
+    color: rgb(255, 191, 0);
+          /* Top edge reflection */
+    
 }
 
 .header-btns:hover {
@@ -329,8 +380,7 @@ header {
 
 .btn-primary {
     background: linear-gradient(135deg, var(--main-color), var(--accent-color));
-    backdrop-filter: blur(12px) brightness(1.2);
-  -webkit-backdrop-filter: blur(12px) brightness(1.2);
+    
     color: #fff;
 }
  
@@ -1600,42 +1650,8 @@ footer::before {
     transform: translateX(8px);
 }
 
-.live-info {
-    background: rgba(255, 255, 255, 0.02);
-    padding: 25px;
-    border-radius: 24px;
-    border: 1px solid var(--glass-border);
-}
-
-.live-info p {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
-    font-size: 1rem;
-    opacity: 0.9;
-}
-
-#time-text {
-    font-weight: 600;
-    color: var(--main-color);
-}
-
-.status-indicator {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 20px;
-    background: rgba(74, 222, 128, 0.1);
-    border: 1px solid rgba(74, 222, 128, 0.2);
-    border-radius: 50px;
-}
-
-.status-indicator span:last-child {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--secondary-color);
-    letter-spacing: 0.5px;
+.footer-box .btn-outline {
+    margin-top: 20px;
 }
 
 .footer-bottom {
@@ -2083,50 +2099,81 @@ footer::before {
     100% { transform: scale(1); opacity: 1; }
 }
 
-
-/* LIQUID GLASS STYLES */
-
-.liquidGlass-wrapper {
-  position: relative;
-  display: flex;
-  font-weight: 600;
-  overflow: hidden;
-
-  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1);
-
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 2.2);
+.btn-grad {
+  background-image: linear-gradient(to right, #314755 0%, #26a0da 51%, #314755 100%);
 }
 
-.liquidGlass-effect {
-  position: absolute;
-  z-index: 0;
-  inset: 0;
-
-  backdrop-filter: blur(3px);
-  filter: url(#glass-distortion);
-  overflow: hidden;
+.btn-grad {
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+  outline: none;
+  border: none;
 }
 
-.liquidGlass-tint {
-  z-index: 1;
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.50);
+.btn-grad:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
 }
 
-.liquidGlass-shine {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-
-  overflow: hidden;
-
-  box-shadow: inset 2px 2px 1px 0 rgba(255, 255, 255, 0.5),
-    inset -1px -1px 1px 1px rgba(255, 255, 255, 0.5);
+.btn-grad i {
+    transition: 0.4s;
 }
 
-.liquidGlass-text {
-  z-index: 3;
-  font-size: 2rem;
-  color: black;
+.btn-grad1 {
+  background-image: linear-gradient(to right, #085078 0%, #85D8CE 51%, #085078 100%);
+}
+
+.btn-grad1 {
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+  outline: none;
+  border: none;
+}
+
+.btn-grad1:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-grad2 {
+  background-image: linear-gradient(to right, #e52d27 0%, #b31217 51%, #e52d27 100%);
+}
+
+.btn-grad2 {
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+  outline: none;
+  border: none;
+}
+
+.btn-grad2:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
 }
